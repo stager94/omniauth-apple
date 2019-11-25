@@ -41,6 +41,10 @@ module OmniAuth
         options[:redirect_uri] || (full_host + script_name + callback_path)
       end
 
+      def callback_phase
+        binding.pry
+      end
+
       private
 
       def id_info
