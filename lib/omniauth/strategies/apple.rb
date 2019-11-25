@@ -10,11 +10,10 @@ module OmniAuth
       option :client_options,
              site: 'https://appleid.apple.com',
              authorize_url: '/auth/authorize',
-             token_url: '/auth/token'
+             token_url: '/auth/token',
+             provider_ignores_state: true
       option :authorize_params,
              response_mode: 'form_post'
-
-      option :provider_ignores_state, true
 
       uid { id_info['sub'] }
 
@@ -39,10 +38,6 @@ module OmniAuth
 
       def callback_url
         options[:redirect_uri] || (full_host + script_name + callback_path)
-      end
-
-      def callback_phase
-        binding.pry
       end
 
       private
