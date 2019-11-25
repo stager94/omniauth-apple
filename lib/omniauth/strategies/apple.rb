@@ -14,6 +14,8 @@ module OmniAuth
       option :authorize_params,
              response_mode: 'form_post'
 
+      option :provider_ignores_state, true
+
       uid { id_info['sub'] }
 
       info do
